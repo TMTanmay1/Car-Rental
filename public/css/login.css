@@ -62,7 +62,7 @@
     background-color: transparent;
     /* object-fit: cover; */
     /* padding-right: 200px; */
-    background-image: url(/img/Login-amico.png); 
+    background-image: url(/public/img/Login-amico.png); 
     margin-left: 130px;
     margin-bottom: 2000px;
     /* -webkit-filter: drop-shadow(5px 5px 5px #222 ); */
