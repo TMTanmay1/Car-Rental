@@ -11,11 +11,11 @@ const schema = new mongoose.Schema({
         unique:true
     },
     Password:{
-        type:Number,
+        type:String,
         required:true
     },
     confirm_password:{
-        type:Number,
+        type:String,
         required:true
     }
 })
