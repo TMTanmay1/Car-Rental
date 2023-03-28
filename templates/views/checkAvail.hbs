@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Availability</title>
+    <style>
+        *, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #000000;
+}
+
+table {
+  max-width: 960px;
+  margin: 10px auto;
+}
+
+caption {
+  font-size: 1.6em;
+  font-weight: 400;
+  padding: 10px 0;
+  color: #3edbde;
+}
+
+thead th {
+  font-weight: 400;
+  background: #8a97a0;
+  color: #FFF;
+}
+
+tr {
+  background: #f4f7f8;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: 5px;
+}
+
+tr:nth-child(even) {
+  background: #e8eeef;
+}
+
+th, td {
+  text-align: left;
+  padding: 20px;
+  font-weight: 300;
+}
+button{
+    margin-bottom: 2px;
+    margin-left: 900px;
+    margin-top: 50px;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+    width: 100px;
+    height: 50px;
+    background-color: #3edbde;
+    color: rgb(255, 255, 255);
+    border: transparent;
+    border-radius: 30px;
+}
+    </style>
+</head>
+<body>
+    
+<table>
+
+    <caption>Car Availability</caption>
+   
+    <thead>
+        
+      <tr>
+       
+        <th scope="col">Car Name</th>
+        <th scope="col"> Car Type</th>
+        <th scope="col">Year</th>
+        <th scope="col">No of seats</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+   
+    <tbody>
+      <tr>
+        <th id="n"></th>
+        <th id="t"></th>
+        <th id="y"></th>
+        <th id="no"></th>
+        <th id="p"></th>
+      </tr>
+      
+    </tbody>
+</table>
+<button>Rent</button>
+</body>
+
+<script>
+    let n = document.getElementById("n")
+    let t = document.getElementById("t")
+    let y = document.getElementById("y")
+    let no = document.getElementById("no")
+    let p = document.getElementById("p")
+
+    const getinfo = async(event)=>{
+        try{
+            let url = `http://localhost:3080/fetch_cardata`
+            const response = await fetch(url)
+            const data = await response.json()
+            await data.forEach(element=>{
+                if(element.carname === '{{carname}}'){
+                    n.innerText = element.carname
+                    t.innerText = element.car_type
+                    y.innerText = element.year
+                    no.innerText = element.no_of_seats
+                    p.innerText = element.price
+                }
+            })
+        }  catch(error){
+            console.log(error)
+        }
+    }
+    getinfo()
+</script>
+</html>

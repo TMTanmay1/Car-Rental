@@ -4,6 +4,7 @@ const hbs = require('hbs')
 const port = 3080
 const app = express()
 const data = require('./model/user')
+const car_data = require('./model/car_details')
 const cookieParser = require('cookie-parser')
 
 const public_path = path.join(__dirname,'../public')
@@ -27,8 +28,8 @@ app.get("/",async (req,res)=>{
     }
 })
  
-app.get("/signup_page", (req,res)=>{
-    res.render('signup') 
+app.get("/login_page", (req,res)=>{
+    res.render('login') 
 })
 
 app.post('/signup_form', async (req,res)=>{
@@ -56,8 +57,8 @@ app.post('/signup_form', async (req,res)=>{
     }
 })
 
-app.get("/login_page",(req,res)=>{
-    res.render('login')
+app.get("/signup_page",(req,res)=>{
+    res.render('signup')
 })
 
 app.post('/login_form', async (req,res)=>{
@@ -91,6 +92,56 @@ app.get('/home', (req,res)=>{
 app.get('/catalogue', (req,res)=>{
     res.render('catalogue')
 })
+
+app.get('/more_cars',(req,res)=>{
+    res.render('cars')
+})
+
+// host user_data API
+app.get('/fetch_userdata', async(req,res)=>{
+    const userData = await data.find()
+    res.send(userData)
+})
+
+// host car_data API 
+app.get('/fetch_cardata', async (req,res)=>{
+    const carData = await car_data.find()
+    res.send(carData)
+})
+
+// fetch car data and display it to a webpage. it will search on the basis of car name.
+app.post('/search', (req,res)=>{
+    const carname = req.body.carname
+    const getName = car_data.findOne({carname:carname})
+    const name = getName.carname
+    console.log(carname);
+    if(carname){
+        res.render('checkAvail',{carname})
+    } else {
+        res.send('<h1>Please Enter car name !!</h1>')
+    }
+})
+
+
+
+//Enter data into car details db.
+app.get('/car_form',(req,res)=>{
+    res.render('car_form')
+})
+
+app.post('/car', (req,res)=>{
+    const cardb = new car_data({
+        carname: req.body.carname,
+        car_type: req.body.car_type,
+        year:req.body.year,
+        no_of_seats: req.body.no_of_seats,
+        price: req.body.price
+    })
+    const postData =  cardb.save(); 
+})
+
+
+
 
 
 app.listen(port ,()=>{
