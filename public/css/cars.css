@@ -1,0 +1,100 @@
+body{
+    background-color: rgb(182, 230, 236);
+    overflow-x: hidden;
+}
+
+.navbar{
+    height: fit-content;
+    margin-top: 50px;
+    font-size: x-large;
+    margin-left: 200px;
+  
+
+}
+
+.navbar a{
+    
+    margin-left: 100px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    
+
+}
+
+.icon{
+    margin-bottom: 140px;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+   display: flex;
+}
+   
+   p1{
+    margin-left: 25px;
+    margin-right: 10px;
+    margin-top: 20px;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xxx-large;
+    font-weight: bold;
+   
+}
+p2{
+    margin-right: 100px;
+    margin-top: 20px;
+    color:rgba(0, 180, 197, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xxx-large;
+    font-weight: bold;
+
+}
+.column {
+    box-shadow: 0px 4px 65px rgba(0, 0, 0, 0.25);
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    margin-top: 300px;
+    /* background-color: black; */
+    height: 350px;
+    /* width:30px; */
+    float: left;
+    width: 17%;
+    margin:3%;
+    
+  }
+  .container{
+    margin-left: 130px;
+    height: 300px;
+    width: 1800px;
+
+  }
+  .image{
+    height:190px;
+    width: 306px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-color: #000000;
+  }
+  p{
+    text-align: start;
+    margin-left: 5px;
+    font-size: large;
+  }
+  h3{
+    margin-left: 5px;
+  }
+  button{
+    margin-bottom: 2px;
+    margin-left: 145px;
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+    width: 140px;
+    height: 50px;
+    background-color: #3edbde;
+    color: rgb(255, 255, 255);
+    border: transparent;
+    border-radius: 50px;
+}

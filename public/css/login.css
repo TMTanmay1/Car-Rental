@@ -1,5 +1,4 @@
 
-
 .navbar{
     height: fit-content;
     margin-top: 50px;
@@ -77,20 +76,20 @@ h1{
 }
 
 button{
-    margin-left: 50px;
-    margin-top: 30px;
+    margin-left: 155px;
+    margin-top: 50px;
     font-size: x-large;
     font-weight: bold;
     text-align: center;
-    padding: 30px;
-    width: 300px;
-    height: 80px;
+    padding: 15px;
+    width: 260px;
+    height: 65px;
     background-color: #43e5e7;
     color: aliceblue;
     border: transparent;
     border-radius: 50px;
 }
-p{
+#su{
     margin-bottom: 20px;
     margin-left: 250px;
     font-size: 45px;
@@ -125,4 +124,14 @@ label{
     font-size: x-large;
     border-radius: 20px;
     
+}
+p{
+    margin-top: 50px;
+    margin-left: 220px;
+    color: aliceblue;
+    font-size: large;
+}
+a{margin-left: 5px;
+    font-size: large;
+    color: #43e5e7;
 }

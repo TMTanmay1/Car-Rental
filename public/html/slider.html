@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/slider.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <div id="arrow-left" class="arrow"></div>
+        <div id="slider">
+            <div class="slide slide1">
+                <div class="slide-content" >
+                    <div class="container">
+                        <div class="font" style="font-size: x-large;">
+                          <h1><b>HYUNDAI VERNA</b></h1><br>
+                        </div>
+                        <p>The Hyundai Verna is a compact sedan that comes with both petrol and diesel engine options. Both engines
+                          are paired with a 6-speed manual gearbox as standard, with an optional 6-speed automatic transmission
+                          available for the petrol engine. The Verna also comes with features such as LED headlamps, touchscreen
+                          infotainment system, automatic climate control, and multiple airbags for safety. Overall, the Hyundai
+                          Verna is a well-rounded compact sedan that offers good performance, comfort, and safety features.</p>
+                        <br>
+                        <p>Price Per Hour:</p> <br>
+                      </div>
+                    </div>
+                    <div class="hover">
+                      <!-- <button class="btn">RENT IT</button> -->
+                      <button class="button">
+                        <span class="button_lg">
+                          <span class="button_sl"></span>
+                          <span class="button_text">RENT IT</span>
+                        </span>
+                      </button>
+                    </div>
+            </div>
+            
+            <div class="slide slide2">
+                <div class="slide-content">
+                    <div class="container">
+                        <h1><b>TATA TIAGOR</b></h1><br>
+                        <P>The Tata Tigor is a subcompact sedan that is available in both petrol and diesel engine options. Both
+                          engines are paired with a 5-speed manual gearbox as standard, with an optional 5-speed AMT available for
+                          the petrol engine. The Tigor also comes with features such as touchscreen infotainment system, automatic
+                          climate control, and multiple airbags for safety. Overall, the Tata Tigor is a value-for-money subcompact
+                          sedan that offers good fuel efficiency, practicality, and safety features.
+                        </P><br>
+                        <p>Price Per Hour:</p>
+                      </div>
+                </div>
+                <div class="hover">
+                    <!-- <button class="btn">RENT IT</button> -->
+                    <button class="button">
+                      <span class="button_lg">
+                        <span class="button_sl"></span>
+                        <span class="button_text">RENT IT</span>
+                      </span>
+                    </button>
+                  </div>
+            </div>
+
+            <div class="slide slide3">
+                <div class="slide-content">
+                    <div class="container">
+                        <h1><b>VOLKSWAGEN T-PRIME</b></h1><br>
+                        <P>The Volkswagen T-Prime Concept GTE is a luxury SUV concept that was first introduced at the Beijing Motor
+                          Show in 2016. The T-Prime also comes with features such as a large touchscreen infotainment system,
+                          digital instrument cluster, and advanced driver assistance systems such as adaptive cruise control and
+                          lane departure warning. It offers a spacious and luxurious cabin, with seating for up to five passengers.
+                          In terms of safety, the T-Prime comes with a range of features such as ABS, airbags, and electronic
+                          stability control.</P><br>
+                        <p>Price Per Hour:</p>
+                      </div>
+                </div>
+            </div>
+            <div class="hover">
+                <!-- <button class="btn">RENT IT</button> -->
+                <button class="button">
+                  <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">RENT IT</span>
+                  </span>
+                </button>
+              </div>
+              <div class="slide slide4">
+                <div class="slide-content">
+                  <div class="container">
+                    <h1><b>MARUTI XL6</b></h1><br>
+                    <P>The Maruti Suzuki XL6 is a subcompact MPV that is based on the popular Suzuki Ertiga. The XL6 also comes with features such as a touchscreen infotainment system, automatic climate control, and captain seats for the second row. It also offers a spacious and practical cabin, with plenty of storage options and a boot capacity of 209 liters. In terms of safety, the XL6 comes with dual front airbags, ABS, rear parking sensors, and a reverse camera. Overall, the Maruti Suzuki XL6 is a great choice for buyers who are looking for a practical and comfortable MPV with good features and decent performance</P><br>
+                    <p>Price Per Hour:</p>
+                  </div>
+                </div>
+              </div>
+              <div class="hover">
+                <!-- <button class="btn">RENT IT</button> -->
+                <button class="button">
+                  <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">RENT IT</span>
+                  </span>
+          </button>
+        </div>
+        <div class="slide slide5">
+          <div class="slide-content">
+            <div class="container">
+              <h1><b>SCORPIO S11</b></h1><br>
+              <P>The Mahindra Scorpio S11 is paired with a 6-speed manual gearbox or a 6-speed automatic transmission. The Scorpio S11 also comes with features such as touchscreen infotainment system, automatic climate control, and multiple airbags for safety. It also offers a spacious and comfortable cabin, with seating for up to 7 passengers. In terms of safety, the Scorpio S11 comes with ABS, EBD, hill-start assist, and a reverse parking camera. Overall, the Mahindra Scorpio S11 is a great choice for buyers who are looking for a rugged and capable SUV with good performance, features, and safety.</P><br>
+              <p>Price Per Hour:</p>
+            </div>
+          </div>
+        </div>
+        <div class="hover">
+          <!-- <button class="btn">RENT IT</button> -->
+          <button class="button">
+            <span class="button_lg">
+              <span class="button_sl"></span>
+              <span class="button_text">RENT IT</span>
+            </span>
+          </button>
+      </div>
+      </div>
+    </div>
+  </div>
+    
+  </div>
+    <div id="arrow-right" class="arrow"></div>
+    <script>
+        let sliderImages = document.querySelectorAll('.slide'),
+        arrowLeft = document.querySelector('#arrow-left'),
+        arrowRight = document.querySelector('#arrow-right'),
+        current=0;
+function reset(){
+    for(let i=0; i<sliderImages.length; i++){
+        sliderImages[i].style.display ='none';
+    }
+
+}
+function startSlide(){
+    reset();
+    sliderImages[0].style.display = 'block';
+
+}
+function slideLeft(){
+    reset();
+    sliderImages[current - 1].style.display = 'block';
+    current--;
+}
+function slideRight(){
+    reset();
+    sliderImages[current + 1].style.display = 'block';
+    current++;
+}
+
+arrowLeft.addEventListener('click', function(){
+    if(current ===0){
+        current = sliderImages.length;
+    }
+    slideLeft();
+});
+arrowRight.addEventListener('click', function(){
+    if(current ===sliderImages.length - 1){
+        current = -1;
+    }
+    slideRight();
+});
+startSlide();
+</script>
+</body>
+</html>
