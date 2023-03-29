@@ -1,0 +1,38 @@
+*{
+    background-color: black;
+}
+.logo{
+    margin-bottom: 20px;
+    margin-left: 430px;
+}
+img{
+    height: 966.5px;
+    width: 1000px;
+    zoom: 1000%;
+}
+img:hover{
+    zoom:-1000%;
+}
+.zoom-in-out-box {
+    margin-bottom: 200px;
+    margin-left: 430px;
+    /* margin: 24px; */
+    width: 1000px;
+    height: 950px;
+    background: #f50057;
+    background-image: url(/public/img/m.jpg);
+    animation: zoom-in-zoom-out 5s ease 1;
+  }
+  
+  @keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(2500.5, 2500.5);
+    }
+    50% {
+        transform: scale(1,1);
+      
+    }
+    100% {
+      transform: scale(0.5, 0.5);
+    }
+  }
