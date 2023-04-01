@@ -60,7 +60,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-color: transparent;
-    background-image: url(/img/Login-amico.png); 
+    background-image: url(/img/Sign-up-amico.png); 
     margin-left: 130px;
     margin-bottom: 2000px;
     filter: drop-shadow(0px 5px 15px #22222257 );
@@ -113,7 +113,7 @@ label{
     margin-bottom: 20px;
     width: 530px;
     height: 50px;
-    
+    padding-left: 15px;
     
    
 }
@@ -125,16 +125,23 @@ label{
     font-size: x-large;
     margin-bottom: 20px;
     border-radius: 20px;
-   
+    padding-left: 15px;
     
 }
 #Password{
-   
+    padding-left: 15px;
     width: 530px;
     height: 50px;
      font-size: x-large;
      margin-bottom: 20px;
      border-radius: 20px;
-    
-     
+        
  }
+#confirm_password{
+    width: 530px;
+    height: 50px;
+     font-size: x-large;
+     margin-bottom: 20px;
+     border-radius: 20px;
+     padding-left: 15px;
+}
