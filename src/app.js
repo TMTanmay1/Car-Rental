@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
+const alert = require('alert')
 const port = 3080
 const app = express()
 const data = require('./model/user')
@@ -93,7 +94,7 @@ app.get('/catalogue', (req,res)=>{
     res.render('catalogue')
 })
 
-app.get('/more_cars',(req,res)=>{
+app.get('/cars',(req,res)=>{
     res.render('cars')
 })
 
@@ -110,15 +111,17 @@ app.get('/fetch_cardata', async (req,res)=>{
 })
 
 // fetch car data and display it to a webpage. it will search on the basis of car name.
-app.post('/search', (req,res)=>{
+app.post('/search',async (req,res)=>{
     const carname = req.body.carname
-    const getName = car_data.findOne({carname:carname})
+    const getName = await car_data.findOne({carname:carname})
     const name = getName.carname
+    console.log(name);
     console.log(carname);
     if(carname){
         res.render('checkAvail',{carname})
     } else {
-        res.send('<h1>Please Enter car name !!</h1>')
+        // res.send('<h1>Please Enter car name !!</h1>')
+        alert("Please Enter car name !! ")
     }
 })
 
