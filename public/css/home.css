@@ -4,6 +4,7 @@
     background-color: rgb(182, 230, 236);
 scroll-behavior: smooth;
 /* overflow-x: hidden; */
+
 }
 .body::-webkit-scrollbar{
     display: none;
@@ -28,11 +29,10 @@ scroll-behavior: smooth;
 
 .icon{
     position: relative;
+    /* margin-top: -266px; */
     width: 100%;
     height: fit-content;
    display: flex;
-   
-
 }
 
 p1{

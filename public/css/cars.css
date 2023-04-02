@@ -74,7 +74,7 @@ p2{
     width: 306px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    background-color: #000000;
+    /* background-color: #000000; */
   }
   p{
     text-align: start;
@@ -97,4 +97,8 @@ p2{
     color: rgb(255, 255, 255);
     border: transparent;
     border-radius: 50px;
+}
+.image{
+  background-image: url(/public/img/more.jpg);
+ 
 }
