@@ -44,6 +44,21 @@ color: rgb(0, 14, 209);
     margin-right: 100px;
     
 }
+.three{
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 280px;
+    margin-top: 50px;
+    margin-right: 100px;
+}
+.four{
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 280px;
+    margin-top: 50px;
+    margin-right: 100px;
+}
+
 #fname{
     margin-left: 35px;
     margin-right:50px ;
@@ -101,3 +116,32 @@ color: rgb(0, 14, 209);
     background-color: rgba(0, 14, 209, 0.723);
     color: aliceblue;
 }
+#phone{
+    margin-left: 35px;
+    margin-right:50px ;
+    width: 330px;
+    height: 50px;
+    border-radius: 10px;
+}
+#email{
+    margin-left: 35px;
+    margin-right:50px ;
+    width: 330px;
+    height: 50px;
+    border-radius: 10px;
+}
+#carname{
+    margin-left: 35px;
+    margin-right:50px ;
+    width: 330px;
+    height: 50px;
+    border-radius: 10px;
+}
+#duration{
+    margin-left: 35px;
+    margin-right:50px ;
+    width: 330px;
+    height: 50px;
+    border-radius: 10px;
+}
+

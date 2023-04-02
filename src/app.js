@@ -2,11 +2,15 @@ const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
 const alert = require('alert')
+const nodemailer = require("nodemailer");
+const mailgen = require('mailgen')
 const port = 3080
 const app = express()
 const data = require('./model/user')
 const car_data = require('./model/car_details')
+const checkout_data = require('./model/checkout_details')
 const cookieParser = require('cookie-parser')
+const {EMAIL , PASSWORD} = require('../src/env.js')
 
 const public_path = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views')
@@ -75,10 +79,10 @@ app.post('/login_form', async (req,res)=>{
         if(getEmail.Password == password){
             res.render('homepage',{c_name})
         } else {
-             res.send('Password Incorrect !!')
+             alert('Password Incorrect !!')
         }
     } else {
-        res.send('User not Registered !!')
+        alert('User not Registered !!')
     }
     } catch (error) {
         res.send(error)
@@ -112,16 +116,22 @@ app.get('/fetch_cardata', async (req,res)=>{
 
 // fetch car data and display it to a webpage. it will search on the basis of car name.
 app.post('/search',async (req,res)=>{
+    try {
     const carname = req.body.carname
     const getName = await car_data.findOne({carname:carname})
     const name = getName.carname
     console.log(name);
     console.log(carname);
-    if(carname){
+    if(getName){
         res.render('checkAvail',{carname})
     } else {
         // res.send('<h1>Please Enter car name !!</h1>')
-        alert("Please Enter car name !! ")
+        // alert("Please Enter car name !! ")
+        // alert('Required car not found !!')
+        res.render('cars')
+    }
+    } catch (error) {
+        res.send(error)
     }
 })
 
@@ -143,8 +153,93 @@ app.post('/car', (req,res)=>{
     const postData =  cardb.save(); 
 })
 
+app.get('/rent', async (req,res)=>{
+
+    res.render('checkout')
+})
+
+// send mail and store details in db
+
+app.post('/mail' , async (req,res)=>{
+    const userEmail = req.body.email;
+    const duration = req.body.duration;
+    const phone = req.body.phone;
+    const carname = req.body.carname;
+
+    const findPrice = await car_data.findOne({carname:carname})
+    const getPrice = findPrice.price
+    const getCar = findPrice.carname
+    
 
 
+    console.log(userEmail);
+    console.log(carname);
+
+    let config = {
+        service: 'gmail',
+        auth : {
+            user: EMAIL,
+            pass: PASSWORD
+        }
+    }
+
+    let transporter = nodemailer.createTransport(config);
+
+    let MailGenerator = new mailgen({
+        theme: "default",
+        product : {
+            name: "Car Rental",
+            link : 'https://mailgen.js/'
+        }
+    })
+
+    let response = {
+        body:{
+            name:'User',
+            table:{
+                data: [
+                    {
+                        // First_Name: fname,
+                        // Last_Name: lname,
+                        Email: userEmail,
+                        Phone_No: phone,
+                        Car_Name: carname,
+                        Duration: duration,
+                    }
+                ]
+            }
+        },
+    }
+
+    let mail = MailGenerator.generate(response)
+
+    let message = {
+        from : EMAIL,
+        to : userEmail,
+        subject: " Order Confirmation",
+        html: mail
+    }
+
+    transporter.sendMail(message).then(() => {
+        // return res.status(201).json({
+        //     msg: "you should receive an email"
+        // })
+        res.render('payment' , {getPrice} )
+    }).catch(error => {
+        return res.status(500).json({ error })
+    })
+
+
+    const checkdb = new checkout_data({
+        email: req.body.email,
+        phone: req.body.phone,
+        carname: req.body.carname,
+        duration: req.body.duration
+    })
+    const postData = await checkdb.save()
+
+    
+})
 
 
 app.listen(port ,()=>{

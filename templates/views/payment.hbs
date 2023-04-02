@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <style>
+   .payment-container {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.payment-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.payment-amount {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.payment-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2 class="payment-title">Amount to be Paid:</h2>
+        <p class="payment-amount" id="pay"></p>
+        <button class="payment-btn">Proceed to Payment</button>
+      </div>
+      
+</body>
+<script>
+    let a = document.getElementById('pay')
+    function calculateRent() {
+    a.textContent = '{{getPrice}}'*5;
+}
+
+calculateRent()
+
+</script>
+</html>  
