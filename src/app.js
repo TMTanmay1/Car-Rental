@@ -114,6 +114,11 @@ app.get('/fetch_cardata', async (req,res)=>{
     res.send(carData)
 })
 
+app.get('/fetch_checkout', async (req,res)=>{
+    const checkOut = await checkout_data.find()
+    res.send(checkOut)
+})
+
 // fetch car data and display it to a webpage. it will search on the basis of car name.
 app.post('/search',async (req,res)=>{
     try {
@@ -224,7 +229,7 @@ app.post('/mail' , async (req,res)=>{
         // return res.status(201).json({
         //     msg: "you should receive an email"
         // })
-        res.render('payment' , {getPrice} )
+        res.render('payment' , {getPrice , getCar} )
     }).catch(error => {
         return res.status(500).json({ error })
     })

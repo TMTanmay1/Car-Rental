@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Payment</title>
    
     <style>
    .payment-container {
@@ -42,6 +42,7 @@
     </style>
 </head>
 <body>
+ 
     <div class="payment-container">
         <h2 class="payment-title">Amount to be Paid:</h2>
         <p class="payment-amount" id="pay"></p>
@@ -50,12 +51,29 @@
       
 </body>
 <script>
-    let a = document.getElementById('pay')
-    function calculateRent() {
-    a.textContent = '{{getPrice}}'*5;
-}
 
-calculateRent()
+  let a = document.getElementById('pay')
+    const getinfo = async(event)=>{
+      try{
+        let url = `http://localhost:3080/fetch_checkout`
+         const response = await fetch(url)
+         const data = await response.json()
+         await data.forEach(element=>{
+          
+          if(element.carname === '{{getCar}}'){
+              
+            a.textContent = '{{getPrice}}'*element.duration;
+         
+          }
+         })
+      } catch(error){
+            console.log(error)
+        }
+    }
+getinfo()
+
 
 </script>
 </html>  
+
+    
