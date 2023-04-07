@@ -221,7 +221,7 @@ app.post('/mail' , async (req,res)=>{
     let message = {
         from : EMAIL,
         to : userEmail,
-        subject: " Order Confirmation",
+        subject: " Car Rented Successfully!",
         html: mail
     }
 

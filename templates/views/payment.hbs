@@ -42,7 +42,8 @@
     </style>
 </head>
 <body>
- 
+  {{getCar}}
+  {{getPrice}}
     <div class="payment-container">
         <h2 class="payment-title">Amount to be Paid:</h2>
         <p class="payment-amount" id="pay"></p>
@@ -59,8 +60,8 @@
          const response = await fetch(url)
          const data = await response.json()
          await data.forEach(element=>{
-          
           if(element.carname === '{{getCar}}'){
+
               
             a.textContent = '{{getPrice}}'*element.duration;
          
