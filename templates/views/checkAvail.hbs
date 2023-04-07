@@ -69,7 +69,7 @@ button{
 </head>
 <body>
     
-<table>
+<table id="myTable">
 
     <caption>Car Availability</caption>
    
@@ -105,6 +105,7 @@ button{
     let y = document.getElementById("y")
     let no = document.getElementById("no")
     let p = document.getElementById("p")
+    var myTable = document.getElementById("myTable")
 
     const getinfo = async(event)=>{
         try{
@@ -118,6 +119,9 @@ button{
                     y.innerText = element.year
                     no.innerText = element.no_of_seats
                     p.innerText = element.price
+
+                     var cellValue = myTable.rows[1].cells[0].innerHTML;
+                     localStorage.setItem("cellValue", cellValue);
                 }
             })
         }  catch(error){

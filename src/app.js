@@ -159,8 +159,8 @@ app.post('/car', (req,res)=>{
 })
 
 app.get('/rent', async (req,res)=>{
-
-    res.render('checkout')
+    const cook = req.cookies.name
+    res.render('checkout', {cook})
 })
 
 // send mail and store details in db

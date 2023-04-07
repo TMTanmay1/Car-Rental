@@ -22,7 +22,7 @@ color: rgb(0, 14, 209);
     margin: 15px;
 }
 .fir{
-  
+    margin-top: 360px;
     display: flex;
 }
 .container input:checked ~ .checkmark {
@@ -101,7 +101,7 @@ color: rgb(0, 14, 209);
     width: 17px;
 }
 .order button{
-    margin-left: 160px;
+    margin-left: 580px;
     margin-top: 35px;
     height: 55px;
     width: 500px;
@@ -129,6 +129,7 @@ color: rgb(0, 14, 209);
     width: 330px;
     height: 50px;
     border-radius: 10px;
+    cursor: not-allowed;
 }
 #carname{
     margin-left: 35px;
@@ -136,6 +137,7 @@ color: rgb(0, 14, 209);
     width: 330px;
     height: 50px;
     border-radius: 10px;
+    cursor: not-allowed;
 }
 #duration{
     margin-left: 35px;
@@ -144,4 +146,18 @@ color: rgb(0, 14, 209);
     height: 50px;
     border-radius: 10px;
 }
+.image{
+    width: 500px;
+    height: 400px;
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    /* object-fit: cover; */
+    /* padding-right: 200px; */
+    background-image: url(/img/car_checkout.png); 
+    margin-left: 660px;
+position: absolute;
+}   
 
+  
