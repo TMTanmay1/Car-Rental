@@ -245,6 +245,10 @@ app.post('/mail' , async (req,res)=>{
 
     
 })
+app.get('/lease', async(req,res)=>{
+    const cook = req.cookies.name
+    res.render('checkout1', {cook})
+})
 
 
 app.listen(port ,()=>{
