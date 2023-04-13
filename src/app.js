@@ -10,7 +10,9 @@ const data = require('./model/user')
 const car_data = require('./model/car_details')
 const checkout_data = require('./model/checkout_details')
 const cookieParser = require('cookie-parser')
-const {EMAIL , PASSWORD} = require('../src/env.js')
+const {EMAIL , PASSWORD} = require('../src/env.js');
+const car_details = require('./model/car_details');
+const { log } = require('console');
 
 const public_path = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views')
@@ -98,8 +100,9 @@ app.get('/catalogue', (req,res)=>{
     res.render('catalogue')
 })
 
-app.get('/cars',(req,res)=>{
-    res.render('cars')
+app.get('/cars', async (req,res)=>{
+    const card = await car_data.find()
+    res.render('cars',{card})
 })
 
 // host user_data API
@@ -147,7 +150,9 @@ app.get('/car_form',(req,res)=>{
     res.render('car_form')
 })
 
-app.post('/car', (req,res)=>{
+app.post('/car', async (req,res)=>{
+    const card = await car_data.find()
+    
     const cardb = new car_data({
         carname: req.body.carname,
         car_type: req.body.car_type,
@@ -156,6 +161,8 @@ app.post('/car', (req,res)=>{
         price: req.body.price
     })
     const postData =  cardb.save(); 
+
+    res.render('cars',{card})
 })
 
 app.get('/rent', async (req,res)=>{

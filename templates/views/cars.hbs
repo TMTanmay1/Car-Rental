@@ -8,6 +8,7 @@
     <title>More Cars</title>
 </head>
 <body>
+
     <div class="icon">
     
         <p1> Car </p1><p2>Rental</p2>
@@ -28,7 +29,17 @@
     </div>
 
     <div class="product-list">
-    <div class="product"> 
+        
+ {{#each card}}
+    <div class="product">
+    <div class="image"></div>
+    <p>  {{this.carname}}</p>
+    <h3><u> {{this.price}}</u></h3>
+    <button onclick="location.href='/lease'">RENT</button>
+</div>
+{{/each}}
+
+    {{!-- <div class="product"> 
         <div class="image"></div>
         <p id="car">Eon </p>
         <h3><u>Rs.118/hr</u></h3>
@@ -99,7 +110,7 @@
         <p id="car">Dzire </p>
         <h3><u>Rs.254/hr</u></h3>
         <button onclick="location.href='/lease'">RENT</button>
-    </div>
+    </div> --}}
 </div>
 </div>
 </div>
@@ -107,6 +118,7 @@
 
 <script>
     let car = document.getElementById('car')
+    
     function search(){
         let filter = document.getElementById('find').value.toUpperCase();
         let item = document.querySelectorAll('.product');
@@ -130,3 +142,5 @@
 </script>
 
 </html>
+
+{{!-- create dynamic div  --}}
