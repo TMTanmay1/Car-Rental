@@ -33,8 +33,8 @@
  {{#each card}}
     <div class="product">
     <div class="image"></div>
-    <p>  {{this.carname}}</p>
-    <h3><u> {{this.price}}</u></h3>
+    <h4>Car Name:<u>  {{this.carname}}</u></h4>
+    <h3>Price per hour:<u> {{this.price}}</u></h3>
     <button onclick="location.href='/lease'">RENT</button>
 </div>
 {{/each}}
@@ -122,10 +122,10 @@
     function search(){
         let filter = document.getElementById('find').value.toUpperCase();
         let item = document.querySelectorAll('.product');
-        let l = document.getElementsByTagName('p');
+        let l = document.getElementsByTagName('u');
 
         for(var i=0; i<l.length;i++){
-            let a=item[i].getElementsByTagName('p')[0];
+            let a=item[i].getElementsByTagName('u')[0];
             let value=a.innerHTML || a.innerText || a.textContent;
             if(value.toUpperCase().indexOf(filter) > -1) {
                 item[i].style.display="";

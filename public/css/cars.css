@@ -113,9 +113,11 @@ margin-bottom: 10px;
 .container .search input
 {
 width: 50%;
-background: transparent;
+height: 50px;
+background: white;
 border: 2px solid #000;
 font-size: 30px;
+border-radius: 20px;
 text-transform: capitalize;
 letter-spacing: 3px;
 /* outline: none; */
